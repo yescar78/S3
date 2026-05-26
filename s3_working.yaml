@@ -1,7 +1,16 @@
-AWSTemplateFormatVersion: 2019-09-09
-Resorces:
+# Description of what this change includes
+# Fixed bugs in the S3 CloudFormation template and validated it in AWS Infrastructure Composer
+# Revision number
+# 1
+# Date
+# 05/26/2026
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: S3 bucket CloudFormation template
+
+Resources:
   S3Bucket:
-    Type: 'AWS:S3:Bucket'
+    Type: AWS::S3::Bucket
     Properties:
       PublicAccessBlockConfiguration:
         BlockPublicAcls: false
@@ -13,8 +22,9 @@ Resorces:
         ErrorDocument: error.html
     DeletionPolicy: Retain
     UpdateReplacePolicy: Retain
-BucketPolicy:
-    #Type: 'AWS::S3::BucketPolicy'
+ 
+  BucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
     Properties:
       PolicyDocument:
         Id: MyPolicy
